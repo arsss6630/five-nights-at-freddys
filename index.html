@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five Nights at Freddy's - Play Free Online | FNAF Horror Game</title>
+    <meta name="description" content="Play Five Nights at Freddy's online for free! Survive five terrifying nights as a security guard at Freddy Fazbear's Pizza. Can you make it to 6 AM?">
+    <meta name="keywords" content="five nights at freddys, fnaf, fnaf online, play fnaf free, freddy fazbear, horror game, scary game">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fivenightsatfreddys.xyz/">
+    <meta property="og:title" content="Five Nights at Freddy's - Play Free Online">
+    <meta property="og:description" content="Survive five terrifying nights at Freddy Fazbear's Pizza. Play the iconic horror game free in your browser!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fivenightsatfreddys.xyz/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Special Elite', cursive;
+            background: #0a0a0a;
+            color: #c9c9c9;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(ellipse at top, #1a0a0a 0%, #0a0a0a 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(180deg, #1a0505 0%, transparent 100%);
+            border-bottom: 2px solid #8b0000;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(180deg, rgba(139,0,0,0.3) 0%, transparent 100%);
+        }
+
+        h1 {
+            font-family: 'Creepster', cursive;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            color: #ff3333;
+            text-shadow:
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 30px #990000,
+                3px 3px 0 #000;
+            letter-spacing: 3px;
+            animation: flicker 3s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 95%, 100% { opacity: 1; }
+            96% { opacity: 0.8; }
+            97% { opacity: 1; }
+            98% { opacity: 0.9; }
+        }
+
+        .tagline {
+            color: #888;
+            font-size: 0.95rem;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .game-wrapper {
+            background: #111;
+            border: 3px solid #8b0000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow:
+                0 0 30px rgba(139,0,0,0.4),
+                inset 0 0 50px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .game-wrapper::before {
+            content: 'SECURITY CAMERA FEED';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 0.7rem;
+            color: #ff3333;
+            letter-spacing: 2px;
+            z-index: 10;
+            opacity: 0.7;
+        }
+
+        .game-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+        }
+
+        .game-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #1a0505 0%, #0d0d0d 100%);
+            border: 1px solid #8b0000;
+            border-left: 4px solid #ff3333;
+            padding: 15px 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h3 {
+            color: #ff3333;
+            font-family: 'Creepster', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-box p {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .content-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .content-section {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .info-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .info-card h2 {
+            font-family: 'Creepster', cursive;
+            color: #ff3333;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #8b0000;
+        }
+
+        .info-card p {
+            line-height: 1.8;
+            font-size: 0.95rem;
+            color: #aaa;
+        }
+
+        .survival-tips {
+            list-style: none;
+        }
+
+        .survival-tips li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #333;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .survival-tips li:last-child {
+            border-bottom: none;
+        }
+
+        .survival-tips .tip-icon {
+            color: #ff3333;
+            font-weight: bold;
+            min-width: 20px;
+        }
+
+        .night-progress {
+            background: #0a0a0a;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .night-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #222;
+            font-size: 0.85rem;
+        }
+
+        .night-item:last-child {
+            border-bottom: none;
+        }
+
+        .night-item .difficulty {
+            color: #ff3333;
+            font-size: 0.75rem;
+        }
+
+        .animatronic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .animatronic {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .animatronic:hover {
+            border-color: #8b0000;
+            box-shadow: 0 0 15px rgba(139,0,0,0.3);
+        }
+
+        .animatronic .name {
+            color: #ff3333;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .animatronic .role {
+            color: #666;
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #222;
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        footer a {
+            color: #8b0000;
+            text-decoration: none;
+        }
+
+        .clock {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-family: 'Special Elite', cursive;
+            color: #ff3333;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px #ff0000;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+            .clock {
+                display: none;
+            }
+
+            .animatronic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">12:AM</div>
+
+    <header>
+        <h1>Five Nights at Freddy's</h1>
+        <p class="tagline">"Welcome to your new summer job at Freddy Fazbear's Pizza..."</p>
+    </header>
+
+    <main>
+        <div class="game-wrapper">
+            <div class="game-container">
+                <iframe
+                    src="https://www.onlinegames.io/games/2024/w1/five-nights-at-freddys/index.html"
+                    allowfullscreen
+                    loading="lazy"
+                    title="Five Nights at Freddy's Game">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <h3>NIGHT SHIFT NOTICE</h3>
+            <p>You are the new night security guard at Freddy Fazbear's Pizza. Your job is simple: watch the security cameras and make sure nothing goes wrong. But be warned - the animatronic characters tend to... wander at night. Use your limited power wisely. Can you survive until 6 AM?</p>
+        </div>
+
+        <div class="content-section">
+            <div class="info-card">
+                <h2>About FNAF</h2>
+                <p>Five Nights at Freddy's is the iconic indie horror game created by Scott Cawthon that launched a massive franchise. Released in 2014, it has since spawned numerous sequels, spin-offs, novels, and even a major motion picture in 2023 with a sequel coming in 2025.</p>
+                <p style="margin-top: 15px;">In this point-and-click survival horror game, you must monitor security cameras, conserve power, and close doors at the right moment to survive attacks from possessed animatronic characters. Each night gets progressively harder as the animatronics become more aggressive.</p>
+
+                <div class="night-progress">
+                    <div class="night-item">
+                        <span>Night 1</span>
+                        <span class="difficulty">Easy - Tutorial</span>
+                    </div>
+                    <div class="night-item">
+                        <span>Night 2</span>
+                        <span class="difficulty">Normal</span>
+                    </div>
+                    <div class="night-item">
+                        <span>Night 3</span>
+                        <span class="difficulty">Moderate</span>
+                    </div>
+                    <div class="night-item">
+                        <span>Night 4</span>
+                        <span class="difficulty">Hard</span>
+                    </div>
+                    <div class="night-item">
+                        <span>Night 5</span>
+                        <span class="difficulty">Nightmare</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="info-card">
+                    <h2>Survival Tips</h2>
+                    <ul class="survival-tips">
+                        <li>
+                            <span class="tip-icon">01</span>
+                            <span>Check cameras frequently but briefly - they drain power fast</span>
+                        </li>
+                        <li>
+                            <span class="tip-icon">02</span>
+                            <span>Listen for footsteps and breathing sounds near the doors</span>
+                        </li>
+                        <li>
+                            <span class="tip-icon">03</span>
+                            <span>Only close doors when absolutely necessary</span>
+                        </li>
+                        <li>
+                            <span class="tip-icon">04</span>
+                            <span>Watch Pirate Cove - Foxy gets angry if ignored</span>
+                        </li>
+                        <li>
+                            <span class="tip-icon">05</span>
+                            <span>Conserve power for the final hours</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="info-card" style="margin-top: 20px;">
+                    <h2>The Animatronics</h2>
+                    <div class="animatronic-grid">
+                        <div class="animatronic">
+                            <div class="name">Freddy Fazbear</div>
+                            <div class="role">Lead Singer</div>
+                        </div>
+                        <div class="animatronic">
+                            <div class="name">Bonnie</div>
+                            <div class="role">Guitarist</div>
+                        </div>
+                        <div class="animatronic">
+                            <div class="name">Chica</div>
+                            <div class="role">Backup Singer</div>
+                        </div>
+                        <div class="animatronic">
+                            <div class="name">Foxy</div>
+                            <div class="role">Pirate Cove</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Play Five Nights at Freddy's free online. FNAF is a trademark of Scott Cawthon.</p>
+        <p style="margin-top: 10px;">&copy; 2024 fivenightsatfreddys.xyz | <a href="/sitemap.xml">Sitemap</a></p>
+    </footer>
+
+    <script>
+        // Simulate time passing
+        const clock = document.querySelector('.clock');
+        const times = ['12:AM', '1:AM', '2:AM', '3:AM', '4:AM', '5:AM'];
+        let timeIndex = 0;
+
+        setInterval(() => {
+            timeIndex = (timeIndex + 1) % times.length;
+            clock.textContent = times[timeIndex];
+        }, 10000);
+
+        // Random flicker effect
+        setInterval(() => {
+            if (Math.random() > 0.95) {
+                document.body.style.opacity = '0.9';
+                setTimeout(() => {
+                    document.body.style.opacity = '1';
+                }, 50);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
