@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fivenightsatfreddys.xyz/sitemap.xml
+Sitemap: https://fivenightsatfreddys.icu/sitemap.xml
